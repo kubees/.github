@@ -174,6 +174,6 @@ For more details, check our [e2e test repository](https://github.com/kubees/e2e-
 ## Security
 This is the final part of our project. We care too much about having a secure applications and infrastructure, that's why we integrated in our CI pipelines.
 
-For some of the Helm charts, we integrated Checkov to statically analyse our Helm charts. You can see an [example here.](https://github.com/kubees/microservices-umbrella-chart/actions/runs/3582139870/jobs/6026011136)
+For some of the Helm charts, we integrated `Checkov` to statically analyse our Helm charts. You can see an [example here.](https://github.com/kubees/microservices-umbrella-chart/actions/runs/3582139870/jobs/6026011136)
 
 In our Terraform code, we integrated `tfsec` and `tfsec_commenter`. You can see an [example here.](https://github.com/kubees/prod-infrastructure/actions/runs/3925434380/jobs/6710351989)
