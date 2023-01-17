@@ -1,7 +1,7 @@
 # Kubees Project
 
 ## Application Architecture
-<img src="./assets/LinkerdWorkshop.drawio.png" style="display: block; margin-left: auto; margin-right: auto;">
+<img src="https://raw.githubusercontent.com/kubees/.github/main/profile/assets/LinkerdWorkshop.drawio.png" style="display: block; margin-left: auto; margin-right: auto;">
 
 Our application architecture is really simple, **since we focused more on the infrastructure level.**
 
@@ -19,19 +19,19 @@ To export our metrics, we used the famous Prometheus, Grafana combo. Some other 
 
 We added our applications metrics for our microservices like the garbage collector usage, the heap size, etc... and there also other HTTP metrics, like the number of 20x requests, 40x requests and 50x requests.
 
-<img src="./assets/general_metrics.png" style="display: block; margin-left: auto; margin-right: auto;">
+<img src="https://raw.githubusercontent.com/kubees/.github/main/profile/assets/general_metrics.png" style="display: block; margin-left: auto; margin-right: auto;">
 <br>
 
 Furthermore, we added custom business metrics, such as Top 3 playlists that have videos, number of videos per playlist, etc...
 
 <br>
 
-<img src="./assets/business_metrics.png" style="display: block; margin-left: auto; margin-right: auto;">
+<img src="https://raw.githubusercontent.com/kubees/.github/main/profile/assets/business_metrics.png" style="display: block; margin-left: auto; margin-right: auto;">
 <br>
 
 In addition to that, we added metrics of our observability services, such as Fluentbit.
 
-<img src="./assets/fluentbit_metrics.png" style="display: block; margin-left: auto; margin-right: auto;">
+<img src="https://raw.githubusercontent.com/kubees/.github/main/profile/assets/fluentbit_metrics.png" style="display: block; margin-left: auto; margin-right: auto;">
 <br>
 
 
@@ -40,48 +40,45 @@ To export our logs, we used Golang Zap logger as it's the most optimized logger 
 
 Logs aggregation is done using Fluentbit. In fact, we used Fluentbit as log aggregator that will collect data from nodes and pods, store them in an Elasticsearch database, and query/consume them using Kibana (EFK stack).
 
-<img src="./assets/logs_aggregation.png" style="display: block; margin-left: auto; margin-right: auto;">
+<img src="https://raw.githubusercontent.com/kubees/.github/main/profile/assets/logs_aggregation.png" style="display: block; margin-left: auto; margin-right: auto;">
 <br>
 
 This is our Fluentbit data pipeline:
 
-<img src="./assets/data_pipeline.png" style="display: block; margin-left: auto; margin-right: auto;">
+<img src="https://raw.githubusercontent.com/kubees/.github/main/profile/assets/data_pipeline.png" style="display: block; margin-left: auto; margin-right: auto;">
 <br>
 As you can see in the image below, data is collected from Nodes and Pods. Data collected from pods will be modified by applying some filters and data enriching mechanisms, such as JSON parsing, field renaming, removing useless fields, etc...
 The final output of these logs is in Elasticsearch database, but in differences indices.
 
-<img src="./assets/logs_aggregation.png" style="display: block; margin-left: auto; margin-right: auto;">
-<br>
-
 After consuming data from Kibana, we created some helpful dashboards to give us insights about our logs. e.g: Most client IP that made requests to our pods.
 
-<img src="./assets/kibana1.png" style="display: block; margin-left: auto; margin-right: auto;">
+<img src="https://raw.githubusercontent.com/kubees/.github/main/profile/assets/kibana1.png" style="display: block; margin-left: auto; margin-right: auto;">
 <br>
-<img src="./assets/kibana2.png" style="display: block; margin-left: auto; margin-right: auto;">
+<img src="https://raw.githubusercontent.com/kubees/.github/main/profile/assets/kibana2.png" style="display: block; margin-left: auto; margin-right: auto;">
 <br>
-<img src="./assets/kibana3.png" style="display: block; margin-left: auto; margin-right: auto;">
+<img src="https://raw.githubusercontent.com/kubees/.github/main/profile/assets/kibana3.png" style="display: block; margin-left: auto; margin-right: auto;">
 <br>
-<img src="./assets/kibana4.png" style="display: block; margin-left: auto; margin-right: auto;">
+<img src="https://raw.githubusercontent.com/kubees/.github/main/profile/assets/kibana4.png" style="display: block; margin-left: auto; margin-right: auto;">
 <br>
 
 ### Traces
 To troubleshoot network bottlenecks, we used Jaeger with the Opentelemtry collector, in order to collect traces and export them.
 We have enriched our traces with some custom tags, such as `client_ip` and `UUID`, in order to help us to troubleshoot bugs and errors.
 
-<img src="./assets/jaeger1.png" style="display: block; margin-left: auto; margin-right: auto;">
+<img src="https://raw.githubusercontent.com/kubees/.github/main/profile/assets/jaeger1.png" style="display: block; margin-left: auto; margin-right: auto;">
 <br>
-<img src="./assets/jaeger2.png" style="display: block; margin-left: auto; margin-right: auto;">
+<img src="https://raw.githubusercontent.com/kubees/.github/main/profile/assets/jaeger2.png" style="display: block; margin-left: auto; margin-right: auto;">
 <br>
 
 ## GitOps
 To leverage faster deployments and rollbacks (in case of erroneous releases), we decided to use ArgoCD as our GitOps engine, that is responsible of managing our previously stated monitoring applications.
 These application are grouped into ArgoCD monitoring `Project`.
 
-<img src="./assets/argocd.png" style="display: block; margin-left: auto; margin-right: auto;">
+<img src="https://raw.githubusercontent.com/kubees/.github/main/profile/assets/argocd.png" style="display: block; margin-left: auto; margin-right: auto;">
 <br>
 
 We configure ArgoCD in a way to send us notification in our Slack channel whenever a new different revision is deployed on the cluster.
-<img src="./assets/argocd_notifs.png" style="display: block; margin-left: auto; margin-right: auto;">
+<img src="https://raw.githubusercontent.com/kubees/.github/main/profile/assets/argocd_notifs.png" style="display: block; margin-left: auto; margin-right: auto;">
 <br>
 
 ## Helm charts
@@ -160,7 +157,7 @@ To get more insights about our Flagger manifests, check-out [this repository.](h
 In our [playlist microservice](https://github.com/kubees/playlist-microservice), we integrated application infrastructure E2E Tests. These tests are executed whenever we have the label `preview` in our pull request.
 The workflow is like the following:
 
-<img src="./assets/KubernetesPreview.png" style="display: block; margin-left: auto; margin-right: auto;">
+<img src="https://raw.githubusercontent.com/kubees/.github/main/profile/assets/KubernetesPreview.png" style="display: block; margin-left: auto; margin-right: auto;">
 <br>
 
 Our e2e tests are implemented using [Kubernetes E2E framework](https://github.com/kubernetes-sigs/e2e-framework).
